@@ -15,6 +15,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroHard.Domain.Core", "Microhard\MicroHard.Domain.Core\MicroHard.Domain.Core.csproj", "{E0D684D9-682D-42A9-B274-BC6D0C2E88C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microhard.Infra.Bus", "Microhard.Infra.Bus\Microhard.Infra.Bus.csproj", "{D02453F3-3473-4008-BB4E-CA35063E3240}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,12 +27,17 @@ Global
 		{E0D684D9-682D-42A9-B274-BC6D0C2E88C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E0D684D9-682D-42A9-B274-BC6D0C2E88C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E0D684D9-682D-42A9-B274-BC6D0C2E88C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D02453F3-3473-4008-BB4E-CA35063E3240}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D02453F3-3473-4008-BB4E-CA35063E3240}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D02453F3-3473-4008-BB4E-CA35063E3240}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D02453F3-3473-4008-BB4E-CA35063E3240}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E0D684D9-682D-42A9-B274-BC6D0C2E88C3} = {F20EA65A-215B-4DE5-BF85-3C63B2AEDD72}
+		{D02453F3-3473-4008-BB4E-CA35063E3240} = {9383B5D9-6DA4-4199-AD34-32DB96FACCD9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {29A295D7-2E5B-41F9-9D0D-B2D234B06075}
