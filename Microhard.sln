@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microhard", "Microhard\Microhard.csproj", "{C8A7E231-841E-4A70-9E82-EBF0BD854280}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microhard", "Microhard\Microhard.csproj", "{C8A7E231-841E-4A70-9E82-EBF0BD854280}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{1618C334-B9E4-4250-8F2E-46CF37264D46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{F20EA65A-215B-4DE5-BF85-3C63B2AEDD72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra.Bus", "Infra.Bus", "{9383B5D9-6DA4-4199-AD34-32DB96FACCD9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra.ioc", "Infra.ioc", "{7CF26CE7-41C7-455D-B2DD-84F3CF375497}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{630B6CEC-323C-4C62-BB0A-947B3EED0250}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,6 +28,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C8A7E231-841E-4A70-9E82-EBF0BD854280} = {630B6CEC-323C-4C62-BB0A-947B3EED0250}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {29A295D7-2E5B-41F9-9D0D-B2D234B06075}
