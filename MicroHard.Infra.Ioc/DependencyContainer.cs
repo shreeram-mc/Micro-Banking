@@ -1,8 +1,11 @@
-﻿using Microhard.Infra.Bus;
+﻿using MediatR;
+using Microhard.Infra.Bus;
 using MicroHard.Banking.Application.Interfaces;
 using MicroHard.Banking.Application.Services;
 using MicroHard.Banking.Data.Context;
 using MicroHard.Banking.Data.Repository;
+using MicroHard.Banking.Domain.Commands;
+using MicroHard.Banking.Domain.CommandsHandler;
 using MicroHard.Banking.Domain.Interfaces;
 using MicroHard.Domain.Core.Bus;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,6 +21,9 @@ namespace MicroHard.Infra.Ioc
         {
             //Domain Bus
             services.AddTransient<IEventBus, RabbitMqBus>();
+
+            //Domain Banking Commands
+            services.AddTransient<IRequestHandler<CreateTransferCommand,bool>, TransferCommandHandler>();
 
             //Application Services
             services.AddTransient<IAccountService, AccountService>();

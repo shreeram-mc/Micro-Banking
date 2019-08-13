@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MicroHard.Banking.Application.Interfaces;
+using MicroHard.Banking.Application.Models;
 using MicroHard.Banking.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -27,6 +28,15 @@ namespace MicroHard.Banking.Api.Controllers
             return Ok(_accountService.GetAccounts());
         }
 
-       
+
+        [HttpPost]
+        public IActionResult Post([FromBody]AccountTransfer accountTransfer)
+        {
+            _accountService.TransferFunds(accountTransfer);
+
+            return Ok(accountTransfer);
+        }
+
+
     }
 }

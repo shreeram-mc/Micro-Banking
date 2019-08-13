@@ -6,9 +6,10 @@
 
   <ItemGroup>
     <Folder Include="EventsHandler\" />
-    <Folder Include="CommandsHandler\" />
-    <Folder Include="Events\" />
-    <Folder Include="Commands\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microhard\MicroHard.Domain.Core\MicroHard.Domain.Core.csproj" />
   </ItemGroup>
 
 </Project>
