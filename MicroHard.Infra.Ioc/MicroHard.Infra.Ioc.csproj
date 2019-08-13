@@ -8,4 +8,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Microhard.Infra.Bus\Microhard.Infra.Bus.csproj" />
+    <ProjectReference Include="..\Microhard\MicroHard.Domain.Core\MicroHard.Domain.Core.csproj" />
+  </ItemGroup>
+
 </Project>
