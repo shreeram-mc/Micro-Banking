@@ -5,9 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Services\" />
     <Folder Include="Models\" />
-    <Folder Include="Interfaces\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microhard.Transfer.Domain\Microhard.Transfer.Domain.csproj" />
+    <ProjectReference Include="..\Microhard\MicroHard.Domain.Core\MicroHard.Domain.Core.csproj" />
   </ItemGroup>
 
 </Project>

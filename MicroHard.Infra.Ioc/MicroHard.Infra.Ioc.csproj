@@ -13,6 +13,8 @@
     <ProjectReference Include="..\MicroHard.Banking.Data\MicroHard.Banking.Data.csproj" />
     <ProjectReference Include="..\MicroHard.Banking.Domain\MicroHard.Banking.Domain.csproj" />
     <ProjectReference Include="..\Microhard.Infra.Bus\Microhard.Infra.Bus.csproj" />
+    <ProjectReference Include="..\Microhard.Transfer.Application\Microhard.Transfer.Application.csproj" />
+    <ProjectReference Include="..\Microhard.Transfer.Data\Microhard.Transfer.Data.csproj" />
     <ProjectReference Include="..\Microhard\MicroHard.Domain.Core\MicroHard.Domain.Core.csproj" />
   </ItemGroup>
 

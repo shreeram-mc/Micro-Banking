@@ -117,7 +117,7 @@ namespace Microhard.Infra.Bus
             {
                 await ProcessEvents(evenName, message).ConfigureAwait(false);
             }
-            catch(Exception ex)
+            catch
             {
 
             }
