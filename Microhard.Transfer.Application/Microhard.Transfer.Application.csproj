@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microhard.Transfer.Domain\Microhard.Transfer.Domain.csproj" />
+    <ProjectReference Include="..\Microhard\MicroHard.Domain.Core\MicroHard.Domain.Core.csproj" />
+  </ItemGroup>
+
+</Project>
