@@ -73,9 +73,10 @@ namespace Microhard.Transfer.Api
                 x.SwaggerEndpoint("/swagger/v1/swagger.json", "Transfer Microservice v1");
             });
 
+            ConfigureEventBus(app);
+
             app.UseMvc();
 
-            ConfigureEventBus(app);
         }
 
         private void ConfigureEventBus(IApplicationBuilder app)

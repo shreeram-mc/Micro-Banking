@@ -24,14 +24,22 @@ namespace MicroHard.Infra.Ioc
         public static void RegisterServices(IServiceCollection services)
         {
             //Domain Bus
-            services.AddTransient<IEventBus, RabbitMqBus>();
+            services.AddSingleton<IEventBus, RabbitMqBus>(sp =>
+            {
+                var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
 
-            //Domain Banking Commands
-            services.AddTransient<IRequestHandler<CreateTransferCommand,bool>, TransferCommandHandler>();
+                return new RabbitMqBus(sp.GetService<IMediator>(), scopeFactory);
+            });
+
+            //subscriptions
+            services.AddTransient<TransferEventHandler>();
 
             //Domain events
             services.AddTransient<IEventHandler<TransferCreatedEvent>, TransferEventHandler>();
 
+            //Domain Banking Commands
+            services.AddTransient<IRequestHandler<CreateTransferCommand,bool>, TransferCommandHandler>();
+                       
             //Application Services
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<ITransferService, TransferService>();
@@ -43,6 +51,7 @@ namespace MicroHard.Infra.Ioc
             services.AddTransient<ITransferRepository, TransferRepository>();
             services.AddTransient<TransferDbContext>();
 
+            
         }
     }
 }
