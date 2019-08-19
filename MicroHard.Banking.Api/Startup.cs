@@ -1,19 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using MediatR;
 using MicroHard.Banking.Data.Context;
 using MicroHard.Infra.Ioc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace MicroHard.Banking.Api
@@ -30,9 +24,14 @@ namespace MicroHard.Banking.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = Configuration.GetConnectionString("BankingDbConnection");
+
+            if (IsRunningOnDocker)
+                connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
+
             services.AddDbContext<BankingDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("BankingDbConnection"));
+                options.UseSqlServer(connectionString);
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -55,6 +54,10 @@ namespace MicroHard.Banking.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+            if (IsRunningOnDocker)
+                UpdateDatabase(app);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -77,5 +80,25 @@ namespace MicroHard.Banking.Api
 
             app.UseMvc();
         }
+
+        private void UpdateDatabase(IApplicationBuilder app)
+        {
+            try
+            {
+                using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+                {
+                    using (var context = serviceScope.ServiceProvider.GetService<BankingDbContext>())
+                    {
+                        context.Database.Migrate();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private bool IsRunningOnDocker { get { return Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true"; } }
     }
 }

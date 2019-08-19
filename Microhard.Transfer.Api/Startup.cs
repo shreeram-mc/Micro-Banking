@@ -26,11 +26,15 @@ namespace Microhard.Transfer.Api
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {          
+        {
+            string connectionString = Configuration.GetConnectionString("TransferDbConnection");
+
+            if (IsRunningOnDocker)
+                connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
 
             services.AddDbContext<TransferDbContext>(options =>
             {
-                options.UseSqlServer(Configuration.GetConnectionString("TransferDbConnection"));
+                options.UseSqlServer(connectionString);               
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
@@ -53,6 +57,11 @@ namespace Microhard.Transfer.Api
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+            if (IsRunningOnDocker)
+                UpdateDatabase(app);
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -85,5 +94,25 @@ namespace Microhard.Transfer.Api
 
             eventBus.Subscribe<TransferCreatedEvent, TransferEventHandler>();
         }
+
+        private void UpdateDatabase(IApplicationBuilder app)
+        {
+            try
+            {
+                using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+                {
+                    using (var context = serviceScope.ServiceProvider.GetService<TransferDbContext>())
+                    {
+                        context.Database.Migrate();
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private bool IsRunningOnDocker { get { return Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true"; } }
     }
 }

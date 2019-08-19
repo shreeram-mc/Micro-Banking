@@ -20,6 +20,7 @@ namespace Microhard.Infra.Bus
         private readonly Dictionary<string, List<Type>> _handlers;
         private readonly List<Type> _eventTypes;
         private readonly IServiceScopeFactory _serviceScopeFactory;
+        const string RabbitHostName = "rabbit";
 
         public RabbitMqBus(IMediator mediator, IServiceScopeFactory serviceScopeFactory)
         {
@@ -38,7 +39,7 @@ namespace Microhard.Infra.Bus
         {
             var factory = new ConnectionFactory()
             {
-                HostName = "localhost"
+                HostName = RabbitHostName
             };
 
             using (var connection = factory.CreateConnection())
@@ -92,7 +93,7 @@ namespace Microhard.Infra.Bus
         {
             var factory = new ConnectionFactory()
             {
-                HostName = "localhost",
+                HostName = RabbitHostName,
                 DispatchConsumersAsync = true
             };
 

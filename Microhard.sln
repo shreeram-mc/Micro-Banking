@@ -47,13 +47,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{A8227575-1
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{9B5AF77C-7395-4216-B2C0-84A46BB0A7F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microhard.Transfer.Api", "Microhard.Transfer.Api\Microhard.Transfer.Api.csproj", "{6F04BAD3-B2C6-4115-9130-34A510414509}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microhard.Transfer.Api", "Microhard.Transfer.Api\Microhard.Transfer.Api.csproj", "{6F04BAD3-B2C6-4115-9130-34A510414509}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microhard.Transfer.Application", "Microhard.Transfer.Application\Microhard.Transfer.Application.csproj", "{023B8EA8-B6BE-4DB4-A33D-BF68589BBA4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microhard.Transfer.Application", "Microhard.Transfer.Application\Microhard.Transfer.Application.csproj", "{023B8EA8-B6BE-4DB4-A33D-BF68589BBA4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microhard.Transfer.Data", "Microhard.Transfer.Data\Microhard.Transfer.Data.csproj", "{2D2BCA5C-1011-46F6-B327-14BC66503C66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microhard.Transfer.Data", "Microhard.Transfer.Data\Microhard.Transfer.Data.csproj", "{2D2BCA5C-1011-46F6-B327-14BC66503C66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microhard.Transfer.Domain", "Microhard.Transfer.Domain\Microhard.Transfer.Domain.csproj", "{D5DCAB21-66B6-46EA-B81A-DE9935E73864}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microhard.Transfer.Domain", "Microhard.Transfer.Domain\Microhard.Transfer.Domain.csproj", "{D5DCAB21-66B6-46EA-B81A-DE9935E73864}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C9459FDE-FFA8-4C37-BE92-6A79EE68A5C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +107,10 @@ Global
 		{D5DCAB21-66B6-46EA-B81A-DE9935E73864}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5DCAB21-66B6-46EA-B81A-DE9935E73864}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5DCAB21-66B6-46EA-B81A-DE9935E73864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9459FDE-FFA8-4C37-BE92-6A79EE68A5C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9459FDE-FFA8-4C37-BE92-6A79EE68A5C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9459FDE-FFA8-4C37-BE92-6A79EE68A5C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9459FDE-FFA8-4C37-BE92-6A79EE68A5C0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
